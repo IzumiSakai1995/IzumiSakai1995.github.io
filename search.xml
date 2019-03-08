@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title><![CDATA[spring-cloud]]></title>
+    <url>%2F2019%2F03%2F05%2Fspring-cloud%2F</url>
+    <content type="text"><![CDATA[spring cloud:​ Spring Cloud Netflix: ​ 是对Netflix开发的一套分布式服务器框架封装，包括服务的发现和注册，负载均衡，断路器，REST客户端，请求路由等。 ​ Spring Cloud Eureka: ​ 是Spring Colud Netflix为服务套件中的一部分，基于Netflix Eureka做了二次封装，主要负责完成微服务架构中的服务治理功能。 1234&lt;dependency&gt; &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt; &lt;artifactId&gt;spring-cloud-starter-netflix-eureka-client&lt;/artifactId&gt;&lt;/dependency&gt; 1234&lt;dependency&gt; &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt; &lt;artifactId&gt;spring-cloud-starter-openfeign&lt;/artifactId&gt;&lt;/dependency&gt; 1234567&lt;repositories&gt; &lt;repository&gt; &lt;id&gt;spring-milestones&lt;/id&gt; &lt;name&gt;Spring Milestones&lt;/name&gt; &lt;url&gt;https://repo.spring.io/milestone&lt;/url&gt; &lt;/repository&gt; &lt;/repositories&gt; eureka服务端 123456&lt;!-- https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-starter-netflix-eureka-server --&gt;&lt;dependency&gt; &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt; &lt;artifactId&gt;spring-cloud-starter-netflix-eureka-server&lt;/artifactId&gt; &lt;version&gt;2.1.0.RELEASE&lt;/version&gt;&lt;/dependency&gt; 加上注解 12@EnableEurekaServer // eureka 服务端@EnableFeignClien //开启feign客户端 服务提供者]]></content>
+      <categories>
+        <category>java</category>
+      </categories>
+      <tags>
+        <tag>spring cloud</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[jdk11新特性]]></title>
+    <url>%2F2019%2F03%2F05%2Fjdk11%E6%96%B0%E7%89%B9%E6%80%A7%2F</url>
+    <content type="text"></content>
+  </entry>
+  <entry>
+    <title><![CDATA[jdk8新特性]]></title>
+    <url>%2F2019%2F03%2F05%2Fjdk8%E6%96%B0%E7%89%B9%E6%80%A7%2F</url>
+    <content type="text"><![CDATA[jdk8新特性lambda表达式Lambda表达式用于表示一个函数，所以它和函数一样，也拥有参数、返回值、函数体，但它没有函数名，所以Lambda表达式相当于一个匿名函数。语法如下： 1(Person person)—&gt;person.getAge()&gt;30 Lambda表达式用—&gt;连接，-&gt;左侧为函数的参数，-&gt;右侧为函数体。若右侧由多条语句构成则需要用{}包裹 为lambda表达式定义函数式接口1234@FunctionalInterfaceinterface FilterProcessor&lt;T&gt;&#123; boolean process(T t);&#125; 实现筛选函数 123456List&lt;T&gt; filter(List&lt;T&gt; list, FilterProcessor&lt;T&gt; filterProcessor)&#123; List&lt;T&gt; result = new ArrayList&lt;T&gt;(); if(filterProcessor.process(t)) result.add(t); return result;&#125; 方法引用函数式接口streamoptional类默认方法Java 8 新增了接口的默认方法 简单说，默认方法就是接口可以有实现方法，而且不需要实现类去实现其方法 只需要在方法名前面加个default关键字即可实现默认方法 语法12345public interface Vehicle()&#123; defalut void print()&#123; System.out.println("这是一个默认方法") &#125;&#125; super调用指定接口的默认方法12345public class Car implements Vehicle, FourWheeler &#123; public void print()&#123; Vehicle.super.print(); &#125;&#125; 静态默认方法java8的另一个特性是接口可以声明（并且可以提供实现）静态方法 123456789public interface Vehicle &#123; default void print()&#123; System.out.println("我是一辆车!"); &#125; // 静态方法 static void blowHorn()&#123; System.out.println("按喇叭!!!"); &#125;&#125; 新的日期时间API本地化日期时间API12345678910111213LocalDateTime currentTime = LocalDateTime.now();LocalDate date1 = currentTime.toLocalDate();Month month = currentTime.getMonth();int day = currentTime.getDayOfMonth();int seconds = currentTime.getSecond();//date2: 2012-04-10T16:55:48.668LocalDate date2 = currentTime.withDayOfMonth(10).withYear(2012);//date3: 2014-12-12LocalDate date3 = LocalDate.of(2014,Month.DECEMBER,12);//date4: 22:15LocalTime date4 = localTime.of(22,15);//date5: 20:15:30 解析字符串LocalTime date5 = LocalTime.parse("20:15:30") 使用时区的日期时间API12345678//获取当前时间日期ZonedDateTime date1 = ZonedDateTime。parse("2015-12-03T10:15:30+05:30[Asia/Shanghai]");//ZoneId : Europe/ParisZoneId id = ZoneId.of("Europe/Paris");//当前失去 ： Asia/ShanghaiZoneId currentZone = ZoneId.systemDefault();]]></content>
+      <categories>
+        <category>java</category>
+      </categories>
+      <tags>
+        <tag>java</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[面试题]]></title>
+    <url>%2F2019%2F03%2F04%2F%E9%9D%A2%E8%AF%95%E9%A2%98%2F</url>
+    <content type="text"><![CDATA[String和String Buffer以及String Builer的区别 线程安全：String和StringBuilder线程不安全，StringBuffer线程安全 效率：StringBuilder &gt; StringBuffcer 使用原则：当数据量小且单线程使用String，数据量大单线程使用StringBuilder。多线程使用StringBuffer]]></content>
+      <categories>
+        <category>java</category>
+      </categories>
+      <tags>
+        <tag>面试</tag>
+        <tag>java</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[HashMap实现原理]]></title>
+    <url>%2F2019%2F03%2F04%2FHashMap%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86%2F</url>
+    <content type="text"><![CDATA[HashMap实现原理：jdk1.8以前JDK1.8 之前 HashMap 底层是 数组和链表 结合在一起使用也就是 链表散列。HashMap 通过 key 的 hashCode 经过扰动函数处理过后得到 hash 值，然后通过 (n - 1) &amp; hash 判断当前元素存放的位置（这里的 n 指的时数组的长度），如果当前位置存在元素的话，就判断该元素与要存入的元素的 hash 值以及 key 是否相同，如果相同的话，直接覆盖，不相同就通过拉链法解决冲突。 所谓扰动函数指的就是 HashMap 的 hash 方法。使用 hash 方法也就是扰动函数是为了防止一些实现比较差的 hashCode() 方法 换句话说使用扰动函数之后可以减少碰撞。 哈希表（散列表）：在哈希表中进行添加，删除，查找等操作，性能十分之高，不考虑哈希冲突的情况下，仅需一次定位即可完成，时间复杂度为O(1)；哈希表的主干是数组； 哈希冲突：当我们对某个元素进行哈希运算，得到一个存储地址，然后要进行插入的时候，发现已经被其他元素占用了，其实这就是所谓的哈希冲突，也叫哈希碰撞。哈希函数的设计至关重要，好的哈希函数会尽可能地保证 计算简单和散列地址分布均匀,但是，我们需要清楚的是，数组是一块连续的固定长度的内存空间，再好的哈希函数也不能保证得到的存储地址绝对不发生冲突。那么哈希冲突如何解决呢？哈希冲突的解决方案有多种:开放定址法（发生冲突，继续寻找下一块未被占用的存储地址），再散列函数法，链地址法，而HashMap即是采用了链地址法，也就是数组+链表的方式 HashMap的主干是一个Entry数组，Entry是Hash Map的基本组成单元，每一个Entry包含一个key-value键值对。 Entry是HashMap中的一个静态内部类。代码如下： 123456789101112131415static class Entry&lt;K,V&gt; implements Map.Entry&lt;K,V&gt; &#123; final K key; V value; Entry&lt;K,V&gt; next;//存储指向下一个Entry的引用，单链表结构 int hash;//对key的hashcode值进行hash运算后得到的值，存储在Entry，避免重复计算 /** * Creates new entry. */ Entry(int h, K k, V v, Entry&lt;K,V&gt; n) &#123; value = v; next = n; key = k; hash = h; &#125; 其他几个重要字段12345678//实际存储的key-value键值对的个数transient int size;//阈值，当table == &#123;&#125;时，该值为初始容量（初始容量默认为16）；当table被填充了，也就是为table分配内存空间后，threshold一般为 capacity*loadFactory。HashMap在进行扩容时需要参考threshold，后面会详细谈到int threshold;//负载因子，代表了table的填充度有多少，默认是0.75final float loadFactor;//用于快速失败，由于HashMap非线程安全，在对HashMap进行迭代时，如果期间其他线程的参与导致HashMap的结构发生变化了（比如put，remove等操作），需要抛出异常ConcurrentModificationExceptiontransient int modCount; jdk1.8之后源码 1234567 static final int hash(Object key) &#123; int h; // key.hashCode()：返回散列值也就是hashcode // ^ ：按位异或 // &gt;&gt;&gt;:无符号右移，忽略符号位，空位都以0补齐 return (key == null) ? 0 : (h = key.hashCode()) ^ (h &gt;&gt;&gt; 16);&#125; TreeMap、TreeSet以及JDK1.8之后的HashMap底层都用到了红黑树。红黑树是一种平衡二叉树，为了解决二叉树的缺陷，因为二叉树查找某些情况下会退化成为一个线性结构 为什么不直接使用红黑树我们知道红黑树属于（自）平衡二叉树，但是为了保持“平衡”是需要付出代价的，红黑树在插入新数据后可能需要通过左旋，右旋、变色这些操作来保持平衡。引入红黑树就是为了查找数据快，如果链表长度很短的话，根本不需要引入红黑树的，你引入之后还要付出代价维持它的平衡。但是链表过长就不一样了。至于为什么选 8 这个值呢？通过概率统计所得，这个值是综合查询成本和新增元素成本得出的最好的一个值。 HashMap构造器HashMap有4个构造器，其他构造器如果用户没有传入initialCapacity 和loadFactor这两个参数，会使用默认值 initialCapacity默认为16，loadFactory默认为0.75 数据结构的物理存储结构只有两种：顺序存储和链式存储。 源码12345678public HashMap(int initialCapacity) &#123; /** * The load factor used when none specified in constructor. * static final float DEFAULT_LOAD_FACTOR = 0.75f; 装填因子，在数组长度的0.75的时候扩容 * final float loadFactor 接收装填因子的变量 */ this(initialCapacity, DEFAULT_LOAD_FACTOR);&#125; HashMap和HashTable的区别/HashSet和HashMap的区别Hash Map和HashTable 线程安全：HashMap是非线程安全的，HashTable是线程安全的；HashTable内部的方法都通过synchronized修饰（如果要保证线程安全使用ConcurrentHashMap） 效率：HashMap效率高，因为HashTable需要保证线程安全 对Null Key和Null Value 的支持：HashMap中,null可以作为键，这样的键只有一个，可以有一个或多个键所对应的值为Null，HashTable只要有一个键为Null，就抛出空指针异常 ①初始容量大小和每次扩容增量不同：HashTable默认为11，每次扩容变为 原来的2n+1，HashMap默认初始化大小为16，之后每次扩容容量变为原来的2倍。②如果创建的时候给定了初始容量值，那么HashTable会直接使用你给定的大小，而HashMap会将其扩充为2的幂次方大小（HashMap中的tableSizeFor（）方法保证），也就是说Hash Map总是使用2的幂次方作为哈希表的大小。 底层数据结构：红黑树和链表散列的区别 HashSet和HashMap如果你看过 HashSet 源码的话就应该知道：HashSet 底层就是基于 HashMap 实现的。（HashSet 的源码非常非常少，因为除了 clone() 方法、writeObject()方法、readObject()方法是 HashSet 自己不得不实现之外，其他方法都是直接调用 HashMap 中的方法。） HashMap HashSet 实现了Map接口 实现Set接口 存储键值对 仅存储对象 调用put()向map中添加元素 调用add()方法向Set中添加元素 HashMap使用key计算HashCode HashSet使用成员对象来计算HashCode，对于两个对象来说hashCode可能相同，所以equals()方法来判断对象的相等性，如果两个对象不相同的话，返回false HashMap相对于HashSet来说较快，因为它使用唯一的键获取对象 较慢]]></content>
+      <categories>
+        <category>java</category>
+      </categories>
+      <tags>
+        <tag>java</tag>
+      </tags>
+  </entry>
+</search>
