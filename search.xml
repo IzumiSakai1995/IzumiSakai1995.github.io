@@ -14,7 +14,13 @@
   <entry>
     <title><![CDATA[jdk11新特性]]></title>
     <url>%2F2019%2F03%2F05%2Fjdk11%E6%96%B0%E7%89%B9%E6%80%A7%2F</url>
-    <content type="text"></content>
+    <content type="text"><![CDATA[JShell(java9开始支持) 交互性工具，让java也可以像脚本语言一样运行，进行快速测试 123456启动命令jshell退出命令/exit查看帮助/help 详情点击官方文档 Dynamic Class-File Constants类文件一种新添结构 Java 的类型文件格式将被扩展，支持一种新的常量格式： CONSTANT_Dynamic,CONSTANT_Dynamic会将创建委托给 bootstrap方法 其谬地是降低开发新形式的可实现类文件约束带来的成本和干扰 局部变量的类型推断(var”关键字”) 什么是局部变量类型推断？ 12var javastack = "javastack";System.out.println(javastack) 局部变量的类型推断就是左边的类型直接使用var 定义，而不用写具体的类型，编译器能根据右边的表达式自动推断类型。 在声明隐式类型的lambda表达式的形参时允许使用var 使用var的好处是在使用lambda表达式时给参数加上注解 (@Nonnull var x,@Nullable var y) -&gt; x.process(y)； 注意点 12var a; //这样不可以，无法推断//类的属性的数据类型不可以使用var， 集合中的一些增强API 12345678910111213public void test()&#123; List&lt;String&gt; list = new ArrayList&lt;&gt;(); list.add("aa"); System.out.println(list);&#125;//快捷方式List&lt;String&gt; list2 = List.of("aa","bb");list2.add("cc") // 不能添加元素//List&lt;String&gt; list3 = Arrays.asList("aa","bb","cc");list3.add("dd")； // 不能添加元素Set set = Set.of(1,2,3,4); //同理，不能添加元素]]></content>
+      <categories>
+        <category>java</category>
+      </categories>
+      <tags>
+        <tag>JDK</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[jdk8新特性]]></title>

@@ -46,12 +46,28 @@
     <link href="http://yoursite.com/2019/03/05/jdk11%E6%96%B0%E7%89%B9%E6%80%A7/"/>
     <id>http://yoursite.com/2019/03/05/jdk11新特性/</id>
     <published>2019-03-05T03:48:21.000Z</published>
-    <updated>2019-03-05T03:48:21.033Z</updated>
+    <updated>2019-03-10T03:27:06.231Z</updated>
+    
+    <content type="html"><![CDATA[<ol><li><p>JShell(java9开始支持)</p><p>交互性工具，让java也可以像脚本语言一样运行，进行快速测试</p></li></ol>   <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">启动命令</span><br><span class="line">jshell</span><br><span class="line">退出命令</span><br><span class="line">/exit</span><br><span class="line">查看帮助</span><br><span class="line">/help</span><br></pre></td></tr></table></figure><p>   <a href="https://docs.oracle.com/javase/9/jshell/toc.htm" target="_blank" rel="noopener">详情点击官方文档</a></p><ol start="2"><li><p>Dynamic Class-File Constants类文件一种新添结构</p><p>Java 的类型文件格式将被扩展，支持一种新的常量格式：</p><p>CONSTANT_Dynamic,CONSTANT_Dynamic会将创建委托给 bootstrap方法</p><p>其谬地是降低开发新形式的可实现类文件约束带来的成本和干扰</p></li><li><p>局部变量的类型推断(var”关键字”)</p><p>什么是局部变量类型推断？</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> javastack = <span class="string">"javastack"</span>;</span><br><span class="line">System.out.println(javastack)</span><br></pre></td></tr></table></figure><p>局部变量的类型推断就是左边的类型直接使用var 定义，而不用写具体的类型，编译器能根据右边的表达式自动推断类型。</p><p>在声明隐式类型的lambda表达式的形参时允许使用var</p><p>使用var的好处是在使用lambda表达式时给参数加上注解</p><p>(@Nonnull var x,@Nullable var y) -&gt; x.process(y)；</p><p><strong>注意点</strong></p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a; <span class="comment">//这样不可以，无法推断</span></span><br><span class="line"><span class="comment">//类的属性的数据类型不可以使用var，</span></span><br></pre></td></tr></table></figure></li><li><p>集合中的一些增强API</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test</span><span class="params">()</span></span>&#123;</span><br><span class="line">    List&lt;String&gt; list = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">    list.add(<span class="string">"aa"</span>);</span><br><span class="line">    System.out.println(list);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//快捷方式</span></span><br><span class="line">List&lt;String&gt; list2 = List.of(<span class="string">"aa"</span>,<span class="string">"bb"</span>);</span><br><span class="line">list2.add(<span class="string">"cc"</span>) <span class="comment">// 不能添加元素</span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line">List&lt;String&gt; list3 = Arrays.asList(<span class="string">"aa"</span>,<span class="string">"bb"</span>,<span class="string">"cc"</span>);</span><br><span class="line">list3.add(<span class="string">"dd"</span>)； <span class="comment">// 不能添加元素</span></span><br><span class="line">Set set = Set.of(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>); <span class="comment">//同理，不能添加元素</span></span><br></pre></td></tr></table></figure></li></ol>]]></content>
     
     <summary type="html">
     
+      
+      
+        &lt;ol&gt;
+&lt;li&gt;&lt;p&gt;JShell(java9开始支持)&lt;/p&gt;
+&lt;p&gt;交互性工具，让java也可以像脚本语言一样运行，进行快速测试&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+   &lt;figure class=&quot;highlight java&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;
+      
+    
     </summary>
     
+      <category term="java" scheme="http://yoursite.com/categories/java/"/>
+    
+    
+      <category term="JDK" scheme="http://yoursite.com/tags/JDK/"/>
     
   </entry>
   
