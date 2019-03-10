@@ -36,7 +36,7 @@
   <entry>
     <title><![CDATA[面试题]]></title>
     <url>%2F2019%2F03%2F04%2F%E9%9D%A2%E8%AF%95%E9%A2%98%2F</url>
-    <content type="text"><![CDATA[String和String Buffer以及String Builer的区别 线程安全：String和StringBuilder线程不安全，StringBuffer线程安全 效率：StringBuilder &gt; StringBuffcer 使用原则：当数据量小且单线程使用String，数据量大单线程使用StringBuilder。多线程使用StringBuffer]]></content>
+    <content type="text"><![CDATA[String和String Buffer以及String Builer的区别 线程安全：String和StringBuilder线程不安全，StringBuffer线程安全 效率：StringBuilder &gt; StringBuffcer 使用原则：当数据量小且单线程使用String，数据量大单线程使用StringBuilder。多线程使用StringBuffer List、Set、Map list: 可以允许重复对象 可以插入多个null元素 是一个有序容器，输出顺序即插入顺序 常用实现类ArrayList、LinkedList和Vector set: 不允许重复对象 只允许一个Null元素 无需容器，TreeSet通过Comparator或者Comparable维护了一个排序顺序 常用实现类HashSet、LinkedHashSet以及TreeSet。TreeSet实现了SortedSet接口 Map：不是collection的子接口或者实现类，Map是一个接口 Map的每个Entry都持有两个对象，键唯一 TreeMap Map里可以有多个Null值，但只有一个null键]]></content>
       <categories>
         <category>java</category>
       </categories>

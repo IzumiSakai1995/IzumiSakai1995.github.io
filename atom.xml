@@ -101,9 +101,9 @@
     <link href="http://yoursite.com/2019/03/04/%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
     <id>http://yoursite.com/2019/03/04/面试题/</id>
     <published>2019-03-04T11:04:48.000Z</published>
-    <updated>2019-03-07T08:05:43.621Z</updated>
+    <updated>2019-03-10T03:42:07.065Z</updated>
     
-    <content type="html"><![CDATA[<ol><li><p>String和String Buffer以及String Builer的区别</p><p>线程安全：String和StringBuilder线程不安全，StringBuffer线程安全</p><p>效率：StringBuilder &gt; StringBuffcer</p><p>使用原则：当数据量小且单线程使用String，数据量大单线程使用StringBuilder。多线程使用StringBuffer</p></li><li></li></ol>]]></content>
+    <content type="html"><![CDATA[<ol><li><p>String和String Buffer以及String Builer的区别</p><p>线程安全：String和StringBuilder线程不安全，StringBuffer线程安全</p><p>效率：StringBuilder &gt; StringBuffcer</p><p>使用原则：当数据量小且单线程使用String，数据量大单线程使用StringBuilder。多线程使用StringBuffer</p></li><li><p><strong>List、Set、Map</strong></p><p><strong>list:</strong></p><ol><li>可以允许重复对象</li><li>可以插入多个null元素</li><li>是一个有序容器，输出顺序即插入顺序</li><li>常用实现类ArrayList、LinkedList和Vector</li></ol><p><strong>set:</strong></p><ol><li>不允许重复对象</li><li>只允许一个Null元素</li><li>无需容器，TreeSet通过Comparator或者Comparable维护了一个排序顺序</li><li>常用实现类HashSet、LinkedHashSet以及TreeSet。TreeSet实现了SortedSet接口</li></ol><p><strong>Map</strong>：不是collection的子接口或者实现类，Map是一个接口</p><ol><li>Map的每个Entry都持有两个对象，键唯一</li><li>TreeMap</li><li>Map里可以有多个Null值，但只有一个null键</li></ol></li></ol>]]></content>
     
     <summary type="html">
     
