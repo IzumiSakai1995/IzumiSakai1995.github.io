@@ -1,6 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[PLSQL]]></title>
+    <url>%2F2019%2F03%2F13%2FPLSQL%2F</url>
+    <content type="text"><![CDATA[概念 PL/SQL是一种高级数据库程序设计语言，该语言专门用于在各种环境小多ORACLE数据库进行方法。由于该语言集成于数据库服务器种，所以PL/SQL代码可以对数据进行快速高效的处理。除此之外，可以在ORACLEW数据库的某些客户端工具中，使用PL/SQL语言也是该语言的一个特点 PL/SQL程序由三个块组成，即声明部分、执行部分、异常处理部分 DECLARE 声明部分：再次声明PL/SQL用到的变量，类型及游标， 以及局部的存储过程和函数 BEGIN 执行部分：过程及SQL语句，程序的主要部分 EXCEPTION 执行异常部分：错误处理 END； 其中，执行部分是必须的 基本语法记录类型把逻辑相关的数据作为一个单元存储起来，乘坐PL/SQL RECORD的域（FIELD），其作用是存放互不相同但逻辑相关的信息。 12345678910111213141516171819202122232425262728293031declare​ --声明一个记录类型​ type emp_record is record(​ v_sal employees.salary%type, // 变量​ v_email employees.email%type,​ v_hire_date date​ );​ --定义一个记录类型的成员变量​ v_emp_record emp_record;begin​ --sql语句的操作：select ... into ... from ... where​ select salary,email,hire_date into v_sal,v_email,v_hire_date from employees where employee_id = 100; --使用记录类型后上边查询语句的修改​ select salary,email,hire_date into v_emp_record from employees where employee_id = 100; ​ --打印​ dbms_output.put_line(v_sal||&apos;,&apos;||v_email&apos;,&apos;||v_hire_date); --使用记录类型后上边查询语句的修改 dbms_output.put_line(v_emp_record.v_sal||&apos;,&apos;||v_emp_record.email&apos;,&apos;||v_emp_record.hire_date)end; 流程控制IF表达式 12345678IF&lt;布尔表达式&gt;THEN PL/SQL 和SQL语句；ELSIF&lt;其他布尔表达式&gt;THEN 其他语句;ELSE 其他语句；END IF； -- ELSIF 不能携程 ELSEIF 例1 12345678910111213141516171819202122Declare v_empno employee.employee_id%TYPE :=&amp;empno; v_salary employee.salary%TYPE; v_comment VARCHAR2(35);Begin select salary INTO v_salary from employees where employee_id=v_empno; if v_salary &lt;1500 then v_comment:=&apos;太少了，加点吧~！&apos; elsif v_salary&lt;3000 then v_comment:=&apos;多了点，少点吧~！&apos; else v_comment:=&apos;没有薪水~！&apos; end if; DBMS_OUTPUT.PUT_LINE(v_comment); exception when no_data_found then DBMS_OUTPUT.PUT_LINE(&apos;没有数据~！&apos;)； when others then DBMS_OUTPUT.PUT_LINE(saqlcode||&apos;——&apos;||sqlerrm);END;注：Oracle内置函数sqlcode和sqlerrm主要用在others处理器中，分别用来返回oracle的错误代码和错误消息。 CASE表达式 123456789101112131415161718192021222324--格式一CASE 条件表达式 WHEN 条件表达式结果1 THEN 语句段1 WHEN 条件表达式结果2 THEN 语句段2 …… WHEN 条件表达式结果n THEN 语句段n [ELSE 条件表达式结果]END;--格式二CASE WHEN 条件表达式1 THEN 语句段1 WHEN 条件表达式2 THEN 语句段2 …… WHEN 条件表达式n THEN 语句段n [ELSE 语句段]END; 循环LOOP执行语句； EXIT WHEN &lt;条件语句&gt; END LOOP 12345678910例：Declare int NUMBER(2):=0;BEGIN LOOP int :=int+1 DBMS_OUTPUT.PUT_LINE(&apos;int的当前值：&apos;||int); EXIT WHEN int=10; END LOOP;END; WHILE循环WHILE&lt;布尔表达式&gt;LOOP ​ 要执行的语句； END LOOP； 123456789例：Declare x NUMBER(1):=1;BEGIN WHILE x&lt;10 LOOP DBMS_OUTPUT.PUT_LINE(&apos;X的当前值为：&apos;||x); x:=x+1; END LOOP;END; 数字式循环，For循环[&lt;&lt;循环标签&gt;&gt;] FOR 循环计数器 IN [REVERSE] 下限 .. 上限 LOOP ​ 要执行的语句； END LOOP [循环标签]; 注：没循环一次，循环变量自动加1；使用关键字REVERSE，循环变量自动鉴1.跟在IN REVERSE 后面的数字必须是从小到大的顺序，而且必须是整数，不能是变量或表达式。可以使用EXIT退出循环。 123456例1：BEGIN FOR int in 1..10 LOOP DBMS_OUTPUT.PUT_LINE(&apos;int的当前值为：&apos;||int); END LOOP;END; 12345678910111213141516例2：create table temp_table(num_col NUMBER);DECLARE V_counter NUMBER:=10;BEGIN INSERT INTO temp_table(num_col) VALUES (v_counter); FOR v_counter in 20..25 LOOP INSERT INTO temp_table(num_col) VALUES (v_counter); END LOOP; INSERT INTO temp_table(num_col) VALUES (v_counter); FOR v_counter IN REVERSE 20..25 LOOP INSERT INTO temp_table(num_col) VALUES (v_counter); END LOOP;END; DROP TABLE temp_table; 12345678910111213141516例3:DECLARE TYPE jobids_varray IS VARRAY(12) OF VARCHAR2(10); —定义一个VARRAY数据类型 v_jobids JOBIDS_VARRAY; —声明一个具有JOBIDS_VARRAY数据类型的变量 v_howmany NUMBER; —声明一个变量来保存雇员的数量BEGIN —用某些job_id值初始化数组 v_jobids := jobids_varray(‘FI_ACCOUNT‘, ‘FI_MGR‘, ‘ST_CLERK‘, ‘ST_MAN‘); —用FOR…LOOP…END LOOP循环使用每个数组成员的值 FOR i IN v_jobids.FIRST..v_jobids.LAST LOOP —针对数组中的每个岗位，决定该岗位的雇员的数量 SELECT count(*) INTO v_howmany FROM employees WHERE job_id = v_jobids(i); DBMS_OUTPUT.PUT_LINE ( ‘岗位‘||v_jobids(i)|| ‘总共有‘|| TO_CHAR(v_howmany) || ‘个雇员‘); END LOOP;END; 123456789101112131415161718192021222324252627例4: 在While循环中嵌套loop循环 /*求100至110之间的素数*/DECLARE v_m NUMBER := 101; v_i NUMBER; v_n NUMBER := 0;BEGIN WHILE v_m &lt; 110 LOOP v_i := 2; LOOP IF mod(v_m, v_i) = 0 THEN v_i := 0; EXIT; END IF; v_i := v_i + 1; EXIT WHEN v_i &gt; v_m – 1; END LOOP; IF v_i &gt; 0 THEN v_n := v_n + 1; DBMS_OUTPUT.PUT_LINE(‘第‘|| v_n || ‘个素数是‘ || v_m); END IF; v_m := v_m + 2; END LOOP;END; 标号和GOTOPL/SQL中GOTO语句是无条件跳转到指定的标号去的意思。语法如下： GOTO label ….. &lt;&gt; /标号是用&lt;&lt; &gt;&gt;括起来的标识符 / 注意，在以下地方使用是不合法的，编译时会出错误。 跳转到非执行语句前面。 跳转到子块中。 跳转到循环语句中。 跳转到条件语句中。 从异常处理部分跳转到执行。 从条件语句的一部分跳转到另一部分。 12345678910111213DECLARE V_counter NUMBER := 1;BEGIN LOOP DBMS_OUTPUT.PUT_LINE(‘V_counter的当前值为:‘||V_counter); V_counter := v_counter + 1; IF v_counter &gt; 10 THEN GOTO labelOffLOOP; END IF; END LOOP; &lt;&lt;labelOffLOOP&gt;&gt; DBMS_OUTPUT.PUT_LINE(‘V_counter的当前值为:‘||V_counter);END; 123456789101112DECLARE v_i NUMBER := 0; v_s NUMBER := 0;BEGIN &lt;&lt;label_1&gt;&gt; v_i := v_i + 1; IF v_i &lt;= 1000 THEN v_s := v_s + v_i; GOTO label_1; END IF; DBMS_OUTPUT.PUT_LINE(v_s);END; NULL语句在PL/SQL 程序中，NULL语句是一个可执行语句，可以用 null 语句来说明“不用做任何事情”的意思，相当于一个占位符或不执行任何操作的空语句，可以使某些语句变得有意义，提高程序的可读性，保证其他语句结构的完整性和正确性。如： 123456789101112例1：DECLARE …BEGIN … IF v_num IS NULL THEN GOTO labelPrint; END IF; … &lt;&lt;labelPrint&gt;&gt; NULL; —不需要处理任何数据。END; 123456789101112131415161718例2:DECLARE v_emp_id employees.employee_id%TYPE; v_first_name employees.first_name%TYPE; v_salary employees.salary%TYPE; v_sal_raise NUMBER(3,2);BEGIN v_emp_id := &amp;emp_id; SELECT first_name, salary INTO v_first_name, v_salary FROM employees WHERE employee_id = v_emp_id; IF v_salary &lt;= 3000 THEN v_sal_raise := .10; DBMS_OUTPUT.PUT_LINE(v_first_name||‘的工资是‘||v_salary ||‘、工资涨幅是‘||v_sal_raise); ELSE NULL; END IF;END; 游标的使用在PL/SQL程序中，对于处理多行记录的事务经常使用游标来实现。 类似于Java中的iterator。是一个指向上下文的句柄或指针。 显示游标处理需要四个PL/SQL处理步骤： 定义游标： CURSOR 打开游标 OPEN 提取游标数据：检索结果集合中的数据行，放入指定的输出变量中。 格式 FETCH cursor_name INTO {variable_list | record_variable}; 关闭游标： CLOSE cursor_name; 123456789101112declarecursor c is select tname from tab ; l_tname varchar2(64);begin open c ; loop fetch c into l_tname ; exit when c%notfound ; dbms_output.put_line(l_tname);end loop;close c;end;]]></content>
+      <categories>
+        <category>PLSQL</category>
+      </categories>
+      <tags>
+        <tag>PLSQL</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[linux面试题]]></title>
+    <url>%2F2019%2F03%2F12%2Flinux%E9%9D%A2%E8%AF%95%E9%A2%98%2F</url>
+    <content type="text"><![CDATA[基础 zip的解压方式 zip -r /test/etc /test unzip /test/etc Linux内核引导时，从文件 /etc/fstab 中读取要加载的文件系统 Linux文件系统中每个文件用索引节点来标识。 vi编辑模式下，用ESC来进行模式转化 检查已安装的文件系统/dev/had5 是否正常，若检查有错则自动修复，其命令及参数是？ fsck -a /dev/had5 在Linux系统下，第二个IDE通道的硬盘(从盘)被标识为 hdb 为脚本程序 test.sh 指定执行权限的命令以及参数是 chmod a+x test.sh 或者 chmod 755 test.sh 如何让一个check.sh脚本从每天凌晨2点30分执行 30 02 /bin/bash /home/fang/check.sh 用一条命令实现删除当前目录下3天前被修改的文件 find ./ -type f -mtime +3 -exex rm -f {} \; 怎样查看当前系统版本 1cat /etc/CentOs-release]]></content>
+      <categories>
+        <category>linux</category>
+      </categories>
+      <tags>
+        <tag>linux</tag>
+        <tag>面试</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[数据库相关]]></title>
+    <url>%2F2019%2F03%2F12%2F%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9B%B8%E5%85%B3%2F</url>
+    <content type="text"><![CDATA[触发器的作用 触发器是一种特殊存储过程，主要通过事件来触发而被执行的。它可以强化约束，来维护数据的完整性和一致性，可以跟踪数据库内的操作而不允许未经许可的更新和变化。可以联机运算。如，某表上的触发器包含对另一个表的数据操作，而该操作又会出发新的触发器。 什么是存储过程？用什么来调用 存储过程是一个预编译的Sql语句 Oracle常用名词、概念 数据库块（BLOCK） Oracle数据库中的最小存储和处理单位，包含块本身的头信息数据或PL/SQL代码， Oracle块的大小可以在安装时选择自定义安装来指定，也可以在CREATEDATABASE创建数据库实例时指定。最小为2K最大64K 瓶颈（Bottleneck） 指限制系统性能的部件 面向对象的关系数据库 具有关系数据库的全部功能同时又支持面向对象的数据库称作面向对象关系数据库系统 ，Oracle7是一种功能完备的关系数据库系统 DML：数据库操纵语言：它们是Select、update、insert、delete，就像它的名字一样，对数据库里面的数据进行操作 DDL：数据定义语言：DDL比DML要多，主要命令有CREATE、ALTER、DROP等，DDL主要用在定义或改变表（TABLE）的结构，数据类型，表之间的链接和约束等初始化工作上，它们大多在建表时使用。 DCL：数据库控制语言：是用来设置或更改数据库用户或角色权限的语句 SQL语言16种基本命令 DDL命令：CREATE，ALTER，DROP，RENAME，TRUNCATE，COMMENT DML命令：SELECT，INSERT，UPDATE，DELETE，MERGE DCL命令：SAVEPOINT，ROLLBACK，COMMIT，GRANT，REVOKE]]></content>
+      <categories>
+        <category>数据库</category>
+      </categories>
+      <tags>
+        <tag>数据库</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[负载均衡]]></title>
+    <url>%2F2019%2F03%2F11%2F%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1%2F</url>
+    <content type="text"><![CDATA[负载均衡负载均衡建立在现有网络结构之上，是由多台服务器以对称方式组成一个服务器集合，每台服务器享有等价的地位 ，都可以单独对外提供服务而无需其他服务器的辅助。它提供了一种廉价有效同名的方法扩展网络设备和服务器的带宽、增加吞吐量、加强网络诗句处理能力、提高网络的灵活性和可用性。 反向代理负载均衡普通代理方式是代理内部网络用户访问Internet上服务器的连接请求，客户端必须指定代理服务器，并将本来要直接发送到Internet上服务器的连接请求发送给代理服务器处理。反向代理（Reverse proxy）方式是指以代理服务器来接受Internet上的连接请求，然后将请求转发给内网服务器，并将得到的结果返回给Internet上请求的客户端，此时代理服务器对外就表现为一个服务器。反向代理负载均衡技术是把将来自Internet上的连接请求以反向代理的方式动态地转发给内网上的堕胎服务器进行处理，从而达到负载均衡的目的]]></content>
+      <tags>
+        <tag>负载均衡</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[云计算是啥?]]></title>
+    <url>%2F2019%2F03%2F11%2F%E4%BA%91%E8%AE%A1%E7%AE%97%E6%98%AF%E5%95%A5%2F</url>
+    <content type="text"><![CDATA[云计算 按量计费的公有计算资源 可编程性]]></content>
+      <categories>
+        <category>云计算</category>
+      </categories>
+      <tags>
+        <tag>云计算</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[spring-cloud]]></title>
     <url>%2F2019%2F03%2F05%2Fspring-cloud%2F</url>
     <content type="text"><![CDATA[spring cloud:​ Spring Cloud Netflix: ​ 是对Netflix开发的一套分布式服务器框架封装，包括服务的发现和注册，负载均衡，断路器，REST客户端，请求路由等。 ​ Spring Cloud Eureka: ​ 是Spring Colud Netflix为服务套件中的一部分，基于Netflix Eureka做了二次封装，主要负责完成微服务架构中的服务治理功能。 1234&lt;dependency&gt; &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt; &lt;artifactId&gt;spring-cloud-starter-netflix-eureka-client&lt;/artifactId&gt;&lt;/dependency&gt; 1234&lt;dependency&gt; &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt; &lt;artifactId&gt;spring-cloud-starter-openfeign&lt;/artifactId&gt;&lt;/dependency&gt; 1234567&lt;repositories&gt; &lt;repository&gt; &lt;id&gt;spring-milestones&lt;/id&gt; &lt;name&gt;Spring Milestones&lt;/name&gt; &lt;url&gt;https://repo.spring.io/milestone&lt;/url&gt; &lt;/repository&gt; &lt;/repositories&gt; eureka服务端 123456&lt;!-- https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-starter-netflix-eureka-server --&gt;&lt;dependency&gt; &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt; &lt;artifactId&gt;spring-cloud-starter-netflix-eureka-server&lt;/artifactId&gt; &lt;version&gt;2.1.0.RELEASE&lt;/version&gt;&lt;/dependency&gt; 加上注解 12@EnableEurekaServer // eureka 服务端@EnableFeignClien //开启feign客户端 服务提供者]]></content>
@@ -14,7 +67,7 @@
   <entry>
     <title><![CDATA[jdk11新特性]]></title>
     <url>%2F2019%2F03%2F05%2Fjdk11%E6%96%B0%E7%89%B9%E6%80%A7%2F</url>
-    <content type="text"><![CDATA[JShell(java9开始支持) 交互性工具，让java也可以像脚本语言一样运行，进行快速测试 123456启动命令jshell退出命令/exit查看帮助/help 详情点击官方文档 Dynamic Class-File Constants类文件一种新添结构 Java 的类型文件格式将被扩展，支持一种新的常量格式： CONSTANT_Dynamic,CONSTANT_Dynamic会将创建委托给 bootstrap方法 其谬地是降低开发新形式的可实现类文件约束带来的成本和干扰 局部变量的类型推断(var”关键字”) 什么是局部变量类型推断？ 12var javastack = "javastack";System.out.println(javastack) 局部变量的类型推断就是左边的类型直接使用var 定义，而不用写具体的类型，编译器能根据右边的表达式自动推断类型。 在声明隐式类型的lambda表达式的形参时允许使用var 使用var的好处是在使用lambda表达式时给参数加上注解 (@Nonnull var x,@Nullable var y) -&gt; x.process(y)； 注意点 12var a; //这样不可以，无法推断//类的属性的数据类型不可以使用var， 集合中的一些增强API 12345678910111213public void test()&#123; List&lt;String&gt; list = new ArrayList&lt;&gt;(); list.add("aa"); System.out.println(list);&#125;//快捷方式List&lt;String&gt; list2 = List.of("aa","bb");list2.add("cc") // 不能添加元素//List&lt;String&gt; list3 = Arrays.asList("aa","bb","cc");list3.add("dd")； // 不能添加元素Set set = Set.of(1,2,3,4); //同理，不能添加元素]]></content>
+    <content type="text"><![CDATA[JShell(java9开始支持) 交互性工具，让java也可以像脚本语言一样运行，进行快速测试 123456启动命令jshell退出命令/exit查看帮助/help 详情点击官方文档 Dynamic Class-File Constants类文件一种新添结构 Java 的类型文件格式将被扩展，支持一种新的常量格式： CONSTANT_Dynamic,CONSTANT_Dynamic会将创建委托给 bootstrap方法 其谬地是降低开发新形式的可实现类文件约束带来的成本和干扰 局部变量的类型推断(var”关键字”) 什么是局部变量类型推断？ 12var javastack = "javastack";System.out.println(javastack) 局部变量的类型推断就是左边的类型直接使用var 定义，而不用写具体的类型，编译器能根据右边的表达式自动推断类型。 在声明隐式类型的lambda表达式的形参时允许使用var 使用var的好处是在使用lambda表达式时给参数加上注解 (@Nonnull var x,@Nullable var y) -&gt; x.process(y)； 注意点 12var a; //这样不可以，无法推断//类的属性的数据类型不可以使用var， 集合中的一些增强API 1234567891011121314public void test()&#123; List&lt;String&gt; list = new ArrayList&lt;&gt;(); list.add("aa"); System.out.println(list);&#125;//快捷方式List&lt;String&gt; list2 = List.of("aa","bb");list2.add("cc") // 不能添加元素//List&lt;String&gt; list3 = Arrays.asList("aa","bb","cc");list3.add("dd")； // 不能添加元素Set set = Set.of(1,2,3,4); //同理，不能添加元素Set&lt;Integer&gt; set = Set.of(100,50,100) // 重复元素抛出异常]]></content>
       <categories>
         <category>java</category>
       </categories>
@@ -36,13 +89,13 @@
   <entry>
     <title><![CDATA[面试题]]></title>
     <url>%2F2019%2F03%2F04%2F%E9%9D%A2%E8%AF%95%E9%A2%98%2F</url>
-    <content type="text"><![CDATA[String和String Buffer以及String Builer的区别 线程安全：String和StringBuilder线程不安全，StringBuffer线程安全 效率：StringBuilder &gt; StringBuffcer 使用原则：当数据量小且单线程使用String，数据量大单线程使用StringBuilder。多线程使用StringBuffer List、Set、Map list: 可以允许重复对象 可以插入多个null元素 是一个有序容器，输出顺序即插入顺序 常用实现类ArrayList、LinkedList和Vector set: 不允许重复对象 只允许一个Null元素 无需容器，TreeSet通过Comparator或者Comparable维护了一个排序顺序 常用实现类HashSet、LinkedHashSet以及TreeSet。TreeSet实现了SortedSet接口 Map：不是collection的子接口或者实现类，Map是一个接口 Map的每个Entry都持有两个对象，键唯一 TreeMap Map里可以有多个Null值，但只有一个null键]]></content>
+    <content type="text"><![CDATA[String和String Buffer以及String Builer的区别 线程安全：String和StringBuilder线程不安全，StringBuffer线程安全 效率：StringBuilder &gt; StringBuffcer 使用原则：当数据量小且单线程使用String，数据量大单线程使用StringBuilder。多线程使用StringBuffer List、Set、Map list: 可以允许重复对象 可以插入多个null元素 是一个有序容器，输出顺序即插入顺序 常用实现类ArrayList、LinkedList和Vector set: 不允许重复对象 只允许一个Null元素 无需容器，TreeSet通过Comparator或者Comparable维护了一个排序顺序 常用实现类HashSet、LinkedHashSet以及TreeSet。TreeSet实现了SortedSet接口 Map：不是collection的子接口或者实现类，Map是一个接口 Map的每个Entry都持有两个对象，键唯一 TreeMap Map里可以有多个Null值，但只有一个null键 ==与equals ==：作用是判断两个对象的地址是否相等 equals() 当类没有覆盖equals()方法，则通过equals()比较类的两个对象时，等价于通过”==”比较这两个对象 类覆盖equals()方法，则比较内容是否相等。 hashCode与equals hashCode()的作用是获取哈希码，返回int整数。在插入数据时先比较hash值，如果相同会调用equals()比较内容是否相同，如果相同则不加入，如果不同则重新散列到其他位置。就减少了equals的次数，提高执行速度。 hashCode与equals的相关规定 如果两个对象相等，则hashCode一定相同 两个对象相等，对两个对象分别调用equals方法都返回true 两个对象有相同哈希值，它们不一定相同 因此，equals方法被覆盖过，则hashCode方法也必须被覆盖 hashCode()的默认行为是对堆上的对象产生独特值。如果没有重写hashCode()，则该class的两个对象无论如何都不会相等（即使这两个对象指向相同的数据）]]></content>
       <categories>
         <category>java</category>
       </categories>
       <tags>
-        <tag>java</tag>
         <tag>面试</tag>
+        <tag>java</tag>
       </tags>
   </entry>
   <entry>
