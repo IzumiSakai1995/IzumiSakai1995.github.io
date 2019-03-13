@@ -120,7 +120,7 @@
 <meta property="og:site_name" content="Izumi">
 <meta property="og:description" content="概念 PL/SQL是一种高级数据库程序设计语言，该语言专门用于在各种环境小多ORACLE数据库进行方法。由于该语言集成于数据库服务器种，所以PL/SQL代码可以对数据进行快速高效的处理。除此之外，可以在ORACLEW数据库的某些客户端工具中，使用PL/SQL语言也是该语言的一个特点 PL/SQL程序由三个块组成，即声明部分、执行部分、异常处理部分 DECLARE  声明部分：再次声明PL/SQL用">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-03-13T04:14:05.005Z">
+<meta property="og:updated_time" content="2019-03-13T05:54:35.606Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="PLSQL">
 <meta name="twitter:description" content="概念 PL/SQL是一种高级数据库程序设计语言，该语言专门用于在各种环境小多ORACLE数据库进行方法。由于该语言集成于数据库服务器种，所以PL/SQL代码可以对数据进行快速高效的处理。除此之外，可以在ORACLEW数据库的某些客户端工具中，使用PL/SQL语言也是该语言的一个特点 PL/SQL程序由三个块组成，即声明部分、执行部分、异常处理部分 DECLARE  声明部分：再次声明PL/SQL用">
@@ -433,7 +433,7 @@
                 
               
 
-              <time title="创建时间：2019-03-13 11:08:23 / 修改时间：12:14:05" itemprop="dateCreated datePublished" datetime="2019-03-13T11:08:23+08:00">2019-03-13</time>
+              <time title="创建时间：2019-03-13 11:08:23 / 修改时间：13:54:35" itemprop="dateCreated datePublished" datetime="2019-03-13T11:08:23+08:00">2019-03-13</time>
             
 
             
@@ -579,6 +579,7 @@
 <p>关闭游标：</p>
 <p>CLOSE cursor_name;</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">declare</span><br><span class="line">cursor c is select tname from tab ; </span><br><span class="line">l_tname varchar2(64);</span><br><span class="line">begin </span><br><span class="line">open c ; </span><br><span class="line">loop</span><br><span class="line">    fetch c into l_tname ;</span><br><span class="line">    exit when c%notfound ; </span><br><span class="line">    dbms_output.put_line(l_tname);</span><br><span class="line">end loop;</span><br><span class="line">close c;</span><br><span class="line">end;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">--打印出80部门所有员工工资</span><br><span class="line">declare </span><br><span class="line">	--声明一个记录类型</span><br><span class="line">	type emp_record is record(</span><br><span class="line">        v_sal employees.salary%type,</span><br><span class="line">        v_empid v_employees.employee_id%type</span><br><span class="line">        );</span><br><span class="line">    --声明一个记录类型的变量</span><br><span class="line">    v_emp_record emp_record</span><br><span class="line">	--定义一个游标</span><br><span class="line">	cursor emp_sal_cursor is select salary,employee_id  from employees where department_id = 80;</span><br><span class="line">begin</span><br><span class="line"></span><br><span class="line">	--打开游标</span><br><span class="line">	open emp_sal_cursor</span><br><span class="line">	--提取游标</span><br><span class="line">	fetch emp_sal_cursor into v_emp_record;</span><br><span class="line">	</span><br><span class="line">	while emp_sal_cursor%found loop</span><br><span class="line">		dbms_output_putline(&apos;salary:&apos;||v_emp_record.v_sal&apos;,&apos;||v_emp_record.v_emp);</span><br><span class="line">		fetch emp_sal_cursor into v_sal,v_empid;</span><br><span class="line">		end loop;</span><br><span class="line">	--关闭游标</span><br><span class="line">	close emp_sal_cursor;</span><br><span class="line">end;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -663,6 +664,10 @@
 
           <div class="post-nav-prev post-nav-item">
             
+              <a href="/2019/03/13/常用SQL/" rel="prev" title="常用SQL">
+                常用SQL <i class="fa fa-chevron-right"></i>
+              </a>
+            
           </div>
         </div>
       
@@ -736,7 +741,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">10</span>
+                    <span class="site-state-item-count">11</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -764,7 +769,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">5</span>
+                      
+                    
+                    <span class="site-state-item-count">6</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -799,7 +806,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">9</span>
+                      
+                    
+                    <span class="site-state-item-count">10</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -963,7 +972,7 @@
     <!-- 博客字数统计 -->
     <span class="site-pv">
       <i class="fa fa-pencil"></i>
-      博客全站共： <span class="post-count">6.2k</span> 字
+      博客全站共： <span class="post-count">7k</span> 字
     </span>
 </div>
 <!-- 新增访客统计代码 END-->
