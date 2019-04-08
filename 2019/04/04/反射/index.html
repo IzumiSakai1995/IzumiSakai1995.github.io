@@ -112,16 +112,18 @@
 
 
 
-  <meta name="description" content="爱技术、爱生活">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Izumi">
-<meta property="og:url" content="http://yoursite.com/tags/springboot/index.html">
+  <meta name="description" content="通过反射查看类信息Java程序中许多对象在运行时都会出现两种类型：编译时类型和运行时类型，列如代码：Person p = new Sudent()，该变脸编译时类型为Person，运行时类型为Student；除此之外，程序在运行时接收到外部传入的一个对象，该对象的编译时类型是Obeject，但程序又需要调用该对象运行时类型的方法。 获得Class对象每个类在加载之后，系统就会为该类生成一个对应的C">
+<meta name="keywords" content="java,反射">
+<meta property="og:type" content="article">
+<meta property="og:title" content="反射">
+<meta property="og:url" content="http://yoursite.com/2019/04/04/反射/index.html">
 <meta property="og:site_name" content="Izumi">
-<meta property="og:description" content="爱技术、爱生活">
+<meta property="og:description" content="通过反射查看类信息Java程序中许多对象在运行时都会出现两种类型：编译时类型和运行时类型，列如代码：Person p = new Sudent()，该变脸编译时类型为Person，运行时类型为Student；除此之外，程序在运行时接收到外部传入的一个对象，该对象的编译时类型是Obeject，但程序又需要调用该对象运行时类型的方法。 获得Class对象每个类在加载之后，系统就会为该类生成一个对应的C">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-04-04T07:28:17.144Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Izumi">
-<meta name="twitter:description" content="爱技术、爱生活">
+<meta name="twitter:title" content="反射">
+<meta name="twitter:description" content="通过反射查看类信息Java程序中许多对象在运行时都会出现两种类型：编译时类型和运行时类型，列如代码：Person p = new Sudent()，该变脸编译时类型为Person，运行时类型为Student；除此之外，程序在运行时接收到外部传入的一个对象，该对象的编译时类型是Obeject，但程序又需要调用该对象运行时类型的方法。 获得Class对象每个类在加载之后，系统就会为该类生成一个对应的C">
 
 
 
@@ -130,7 +132,7 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/tags/springboot/">
+  <link rel="canonical" href="http://yoursite.com/2019/04/04/反射/">
 
 
 
@@ -140,7 +142,7 @@
   };
 </script>
 
-  <title>标签: springboot | Izumi</title>
+  <title>反射 | Izumi</title>
   
 
 
@@ -188,7 +190,7 @@
     
   
 
-  <div class="container sidebar-position-left ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband">
     </div>
 <a href="https://github.com/IzumiSakai1995" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewbox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
@@ -261,7 +263,7 @@
         
         
           
-          <li class="menu-item menu-item-tags menu-item-active">
+          <li class="menu-item menu-item-tags">
 
     
     
@@ -325,28 +327,6 @@
   
     
 
-    
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-    
-
-  
-
-
   
 
   
@@ -392,83 +372,307 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block tag">
+  <div id="posts" class="posts-expand">
+    
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>springboot<small>标签</small>
-        </h1>
-      </div>
+  
 
-      
-        
+  
+  
+  
+
+  
+    <div class="reading-progress-bar"></div>
+  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/04/反射/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="IzumiSakai">
+      <meta itemprop="description" content="爱技术、爱生活">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Izumi">
+    </span>
+
+    
+      <header class="post-header">
+
         
-          <a class="post-title-link" href="/2019/04/03/springboot/" itemprop="url">
-            
-              <span itemprop="name">springboot</span>
-            
-          </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">反射
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-04-03T10:05:10+08:00" content="2019-04-03">
-          04-03
-        </time>
-      </div>
+              
+            
+          </h1>
+        
 
-    </header>
-  </article>
+        <div class="post-meta">
+          <span class="post-time">
 
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-04-04 14:11:16 / 修改时间：15:28:17" itemprop="dateCreated datePublished" datetime="2019-04-04T14:11:16+08:00">2019-04-04</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">评论数：</span>
+                <a href="/2019/04/04/反射/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/04/04/反射/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+            <span id="/2019/04/04/反射/" class="leancloud_visitors" data-flag-title="反射">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              
+                <span class="post-meta-item-text">阅读次数：</span>
+              
+                <span class="leancloud-visitors-count"></span>
+            </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-        
+      
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-          <a class="post-title-link" href="/2019/03/20/springboot整合篇/" itemprop="url">
-            
-              <span itemprop="name">springboot整合篇</span>
-            
-          </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-03-20T16:30:46+08:00" content="2019-03-20">
-          03-20
-        </time>
-      </div>
-
-    </header>
-  </article>
-
+      
+        <h3 id="通过反射查看类信息"><a href="#通过反射查看类信息" class="headerlink" title="通过反射查看类信息"></a>通过反射查看类信息</h3><p>Java程序中许多对象在运行时都会出现两种类型：编译时类型和运行时类型，列如代码：Person p = new Sudent()，该变脸编译时类型为Person，运行时类型为Student；除此之外，程序在运行时接收到外部传入的一个对象，该对象的编译时类型是Obeject，但程序又需要调用该对象运行时类型的方法。</p>
+<h4 id="获得Class对象"><a href="#获得Class对象" class="headerlink" title="获得Class对象"></a>获得Class对象</h4><p>每个类在加载之后，系统就会为该类生成一个对应的Class对象，通过该Class对象就可以访问到JVM中的这个类。在Java程序中获取Class对象通常有如下方式：</p>
+<ol>
+<li>使用Class类的forName(String name)静态方法。该方法需要传入字符串参数，该字符串参数的值是某个类的全限定类名（必须添加完整包名）。</li>
+<li>调用某个类的class属性来获取该类对应的Class对象。列如，Person.class将会返回Person类对应的Class对象。</li>
+<li>调用某个对象的getClass()方法。该方法是java.lang.Object类中的一个方法，所有Java对象都可以调用该方法，该方法会直接返回该对象所属类的Class对象。</li>
+</ol>
+<p>大部分时候选用第二种方式来获取指定类的Class对象。代码更安全(程序在预编译阶段就可以检查需要访问的Class对象是否存在)，程序性能更好(无需调用方法)。一旦获得了某个类对应的Class对象之后，程序就可以调用Class对象的方法来获得该对象和该类的真实信息了。</p>
+<h4 id="从Class中获取信息"><a href="#从Class中获取信息" class="headerlink" title="从Class中获取信息"></a>从Class中获取信息</h4><p>Class类提供大量实例方法来获取该Class对象所对应的类的详细信息，Class类大致包含如下方法，下面每个方法都可能包括多个重载的版本，应该查阅API文档来掌握它们。</p>
+<h5 id="获取Class对应类所包含的构造器"><a href="#获取Class对应类所包含的构造器" class="headerlink" title="获取Class对应类所包含的构造器"></a>获取Class对应类所包含的构造器</h5><ol>
+<li>Constructor<t> getConstructor(Class&lt;?&gt;…parameterTypes)：返回此Class对应类的、带指定形参列表的public构造器</t></li>
+<li>Constructor&lt;?&gt;[] getConstructors()：返回此Class对应类的所有public构造器</li>
+<li>Constructor<t>  getDeclaredConstructor(Class&lt;?&gt; …parameterTypes)：返回此Class对应的类的带指定形参列表的构造器，与访问权限无关</t></li>
+<li>Constructor&lt;?&gt;[] getDeclaredConstructors()：返回此Class对应类的所有构造器，与访问权限无关</li>
+</ol>
+<h5 id="获取Class对应类所包含-的方法"><a href="#获取Class对应类所包含-的方法" class="headerlink" title="获取Class对应类所包含 的方法"></a>获取Class对应类所包含 的方法</h5><ol>
+<li>Method getMethod(String name,Class&lt;?&gt;…parameterTypes)：返回此Class对应类的带指定形参列表的public方法。</li>
+<li>Method[] getMethods()：返回此Class对应类的所有public方法。</li>
+<li>Method  getDeclaredMethod(String name,Class&lt;?&gt; …parameterTypes)：返回此Class对应的类的带指定形参列表的方法，与访问权限无关</li>
+<li>Method[] getDeclaredMethods()：返回此Class对应类的所有方法，与访问权限无关</li>
+</ol>
+<h5 id="获取Class对应类所包含的成员变量"><a href="#获取Class对应类所包含的成员变量" class="headerlink" title="获取Class对应类所包含的成员变量"></a>获取Class对应类所包含的成员变量</h5><ol>
+<li>Field getField(String name)：返回此Class对应类的指定名称的public成员变量。</li>
+<li>Field[] getFields()：返回此Class对应类的所有public成员变量。</li>
+<li>Field  getDeclaredField(String name)：返回此Class对应的类的指定名称的成员变量，与访问权限无关</li>
+<li>Field[] getDeclaredMethods()：返回此Class对应类的所有成员变量，与访问权限无关</li>
+</ol>
+<h5 id="其他常用方法"><a href="#其他常用方法" class="headerlink" title="其他常用方法"></a>其他常用方法</h5><p>​    1getName()：返回String形式的该类的名称。<br>　　2 newInstance()：根据某个Class对象产生其对应类的实例，它调用的是此类的默认构造方法(没有默认无参构造器会报错)<br>　　3 getClassLoader()：返回该Class对象对应的类的类加载器。<br>　　4 getSuperClass()：返回某子类所对应的直接父类所对应的Class对象<br>　　5 isArray()：判定此Class对象所对应的是否是一个数组对象<br>　　6 getComponentType() ：如果当前类表示一个数组，则返回表示该数组组件的 Class 对象，否则返回 null。<br>　　7 getConstructor(Class[]) :返回当前 Class 对象表示的类的指定的公有构造子对象。<br>　　8 getConstructors() :返回当前 Class 对象表示的类的所有公有构造子对象数组。<br>　　9 getDeclaredConstructor(Class[]) :返回当前 Class 对象表示的类的指定已说明的一个构造子对象。<br>　　10 getDeclaredConstructors() :返回当前 Class 对象表示的类的所有已说明的构造子对象数组。<br>　　11 getDeclaredField(String) :返回当前 Class 对象表示的类或接口的指定已说明的一个域对象。<br>　　12 getDeclaredFields() :返回当前 Class 对象表示的类或接口的所有已说明的域对象数组。<br>　　13 getDeclaredMethod(String, Class[]) :返回当前 Class 对象表示的类或接口的指定已说明的一个方法对象。<br>　　14 getDeclaredMethods() :返回 Class 对象表示的类或接口的所有已说明的方法数组。<br>　　15 getField(String) :返回当前 Class 对象表示的类或接口的指定的公有成员域对象。<br>　　16 getFields() :返回当前 Class 对象表示的类或接口的所有可访问的公有域对象数组。<br>　　17 getInterfaces() :返回当前对象表示的类或接口实现的接口。<br>　　18 getMethod(String, Class[]) :返回当前 Class 对象表示的类或接口的指定的公有成员方法对象。<br>　　19 getMethods() :返回当前 Class 对象表示的类或接口的所有公有成员方法对象数组，包括已声明的和从父类继承的方法。<br>　　20 isInstance(Object) :此方法是 Java 语言 instanceof 操作的动态等价方法。<br>　　21 isInterface() :判定指定的 Class 对象是否表示一个接口类型<br>　　22 isPrimitive() :判定指定的 Class 对象是否表示一个 Java 的基类型。<br>　　23 newInstance() ：创建类的新实例</p>
+<h4 id="使用反射生成并操作对象"><a href="#使用反射生成并操作对象" class="headerlink" title="使用反射生成并操作对象"></a>使用反射生成并操作对象</h4><h5 id="创建对象"><a href="#创建对象" class="headerlink" title="创建对象"></a>创建对象</h5><ol>
+<li>使用Class对象的newInstance()方法来创建该Class对象对应类的实例，这种方式要求该Class对象的对应类有默认构造器，而执行newInstance()方法时实际上是利用默认构造器来创建该类的实例</li>
+<li>先使用Class对象获取指定的Constructor对象，再调用Constructor对象的newInstance()方法来创建该Class对象对应类的实例。通过这种方式可以选择使用指定的构造器来创建实例。</li>
+</ol>
+<p>通过第一种方式来创建对象是比较常见的情景，因为在很多JAVAEE框架中都需要根据配置文件信息来创建Java对象，从配置文件读取的只是某个类的字符串类名，程序需要根据字符串来创建对应的实例，就必须使用反射。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> 反射创建对象;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.io.FileInputStream;</span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"><span class="keyword">import</span> java.util.HashMap;</span><br><span class="line"><span class="keyword">import</span> java.util.Map;</span><br><span class="line"><span class="keyword">import</span> java.util.Properties;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 实现一个简单的对象池，该对象池会根据配置文件读取key-value对，然后创建这些对象，并把这些对象放入一个HashMap中。</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> IzumiSakai</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ObjectPoolFactory</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 创建一个对象池，前面是对象名，后面是实际对象</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">private</span> Map&lt;String,Object&gt; objectPool = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 定义一个创建对象的方法，该方法只要传入一个字符串，程序可以根据该类名生成Java对象。</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> clazzName 字符串类名</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> clazz 对应类的默认构造器创建的实例</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@throws</span> ClassNotFoundException</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@throws</span> IllegalAccessException</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@throws</span> InstantiationException</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">private</span> Object <span class="title">createObject</span><span class="params">(String clazzName)</span> <span class="keyword">throws</span> ClassNotFoundException, IllegalAccessException, InstantiationException </span>&#123;</span><br><span class="line">        Class&lt;?&gt; clazz = Class.forName(clazzName);</span><br><span class="line">        <span class="keyword">return</span> clazz.newInstance();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 该方法根据指定文件来初始化对象池</span></span><br><span class="line"><span class="comment">     * 它会根据配置文件来创建对象</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> fileName fileName</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">initPool</span><span class="params">(String fileName)</span> <span class="keyword">throws</span> IllegalAccessException, InstantiationException, ClassNotFoundException </span>&#123;</span><br><span class="line">        <span class="keyword">try</span> ( FileInputStream fileInputStream = <span class="keyword">new</span> FileInputStream(fileName))&#123;</span><br><span class="line">            Properties properties = <span class="keyword">new</span> Properties();</span><br><span class="line">            properties.load(fileInputStream);</span><br><span class="line">            <span class="keyword">for</span> (String name : properties.stringPropertyNames())&#123;</span><br><span class="line">                <span class="comment">// 每取出一对key-value对就根据value创建一个对象。</span></span><br><span class="line">                <span class="comment">// 调用createObject创建对象并将对象添加到对象池中</span></span><br><span class="line">                objectPool.put(name,createObject(name));</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;<span class="keyword">catch</span> (IOException ie)&#123;</span><br><span class="line">            System.out.println(<span class="string">"读取"</span> + fileName + <span class="string">"异常"</span>);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Object <span class="title">getObject</span><span class="params">(String name)</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> objectPool.get(name);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> Exception</span>&#123;</span><br><span class="line">        ObjectPoolFactory objectPoolFactory = <span class="keyword">new</span> ObjectPoolFactory();</span><br><span class="line">        objectPoolFactory.initPool(<span class="string">"obj.txt"</span>);</span><br><span class="line">        System.out.println(objectPoolFactory.getObject(<span class="string">"a"</span>));</span><br><span class="line">        System.out.println(objectPoolFactory.getObject(<span class="string">"b"</span>));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="使用反射生成JDK动态代理"><a href="#使用反射生成JDK动态代理" class="headerlink" title="使用反射生成JDK动态代理"></a>使用反射生成JDK动态代理</h4><p>在Java的java.lang.reflect包下提供了一个Proxy类和一个InvocationHandler接口，通过使用这个类和接口可以生成JDK动态代理类或动态代理对象。</p>
+<h5 id="创建动态代理"><a href="#创建动态代理" class="headerlink" title="创建动态代理"></a>创建动态代理</h5><p>Proxy提供了用于创建动态代理类和代理对象的静态方法，它也是所有动态代理类的父类。如果在程序中为一个或多个接口动态的生成实现类，就可以使用Proxy来创建动态代理类；如果要为一个或多个接口动态地创建实例，也可以使用Proxy来创建动态代理实例。</p>
+<p>Proxy提供如下俩方法来创建动态代理类和动态代理实例</p>
+<ol>
+<li>static Class&lt;?&gt; getProxyClass(ClassLoader loader,Class &lt;?>…interfaces)：创建一个动态代理类所对应的Class对象，该代理类将实现interfaces所指定的多个接口。第一个ClassLoader参数指定生成动态代理类的类加载器。</li>
+<li>static Object newProxyInstance(ClassLoader loader,Class&lt;?&gt;[] interfaces,invocationHandler h)：直接创建一个动态代理对象，该代理对象的实现类实现了interfaces指定的系列接口，执行代理对象的每个方法都会被替换成执行InvocationHandler对象的invoke方法.</li>
+<li></li>
+</ol>
 
       
     </div>
 
+    
+
+    
+    
+    
+<div>
+
+<div>
+
+    <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+
+</div>
+
+
+</div>
+    
+
+    
+      
+    
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div></div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById(&quot;QR&quot;); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.jpg" alt="IzumiSakai 微信支付">
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.jpg" alt="IzumiSakai 支付宝">
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/java/" rel="tag"># java</a>
+          
+            <a href="/tags/反射/" rel="tag"># 反射</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/04/04/类加载机制/" rel="next" title="类加载机制">
+                <i class="fa fa-chevron-left"></i> 类加载机制
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/04/08/设计模式/" rel="prev" title="设计模式">
+                设计模式 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
 
+  </div>
 
 
           </div>
           
+
+  
+    <div class="comments" id="comments">
+    </div>
+
+  
+
+
 
         </div>
         
@@ -488,8 +692,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -684,6 +897,23 @@
       </div>
 
       
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#通过反射查看类信息"><span class="nav-number">1.</span> <span class="nav-text">通过反射查看类信息</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#获得Class对象"><span class="nav-number">1.1.</span> <span class="nav-text">获得Class对象</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#从Class中获取信息"><span class="nav-number">1.2.</span> <span class="nav-text">从Class中获取信息</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#获取Class对应类所包含的构造器"><span class="nav-number">1.2.1.</span> <span class="nav-text">获取Class对应类所包含的构造器</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#获取Class对应类所包含-的方法"><span class="nav-number">1.2.2.</span> <span class="nav-text">获取Class对应类所包含 的方法</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#获取Class对应类所包含的成员变量"><span class="nav-number">1.2.3.</span> <span class="nav-text">获取Class对应类所包含的成员变量</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#其他常用方法"><span class="nav-number">1.2.4.</span> <span class="nav-text">其他常用方法</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#使用反射生成并操作对象"><span class="nav-number">1.3.</span> <span class="nav-text">使用反射生成并操作对象</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#创建对象"><span class="nav-number">1.3.1.</span> <span class="nav-text">创建对象</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#使用反射生成JDK动态代理"><span class="nav-number">1.4.</span> <span class="nav-text">使用反射生成JDK动态代理</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#创建动态代理"><span class="nav-number">1.4.1.</span> <span class="nav-text">创建动态代理</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
 
       
 
@@ -872,6 +1102,10 @@ setInterval("createtime()",250);
 
 
   
+  <script src="/js/src/scrollspy.js?v=7.0.1"></script>
+<script src="/js/src/post-details.js?v=7.0.1"></script>
+
+
 
   
 
@@ -911,6 +1145,8 @@ setInterval("createtime()",250);
 
 
 
+
+  
 
 
   

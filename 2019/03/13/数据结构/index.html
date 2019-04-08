@@ -112,18 +112,18 @@
 
 
 
-  <meta name="description" content="红黑树红黑树的特点  每个节点是黑色或者红色。 根节点是黑色。 每个叶子节点是黑色（这里叶子节点是指为空（NIL或者NULL）的叶子节点） 如果一个节点是红色，则它的子节点必须是黑色的。 从一个节点到该节点的子孙节点的所有路径上包含相同数目的红黑节点（这里指到叶子节点的路径）  二叉树概览树是一种经常用到的数据结构，用来模拟具有树状结构性质的数据结合。 二叉搜索树定义二叉搜索树（BST）是二叉树的">
+  <meta name="description" content="链表介绍与数组相似，链表也是一种线性数据结构。 单链表单链表中每个节点包含值和链接到下一个结点的引用字段。 12345678//单链表中结点的典型定义public class SinglyListNode &amp;#123;    int val;    SinglyListNode next;    SinglyListNode(int x)&amp;#123;        val = x;    &amp;#12">
 <meta name="keywords" content="数据结构">
 <meta property="og:type" content="article">
 <meta property="og:title" content="数据结构">
 <meta property="og:url" content="http://yoursite.com/2019/03/13/数据结构/index.html">
 <meta property="og:site_name" content="Izumi">
-<meta property="og:description" content="红黑树红黑树的特点  每个节点是黑色或者红色。 根节点是黑色。 每个叶子节点是黑色（这里叶子节点是指为空（NIL或者NULL）的叶子节点） 如果一个节点是红色，则它的子节点必须是黑色的。 从一个节点到该节点的子孙节点的所有路径上包含相同数目的红黑节点（这里指到叶子节点的路径）  二叉树概览树是一种经常用到的数据结构，用来模拟具有树状结构性质的数据结合。 二叉搜索树定义二叉搜索树（BST）是二叉树的">
+<meta property="og:description" content="链表介绍与数组相似，链表也是一种线性数据结构。 单链表单链表中每个节点包含值和链接到下一个结点的引用字段。 12345678//单链表中结点的典型定义public class SinglyListNode &amp;#123;    int val;    SinglyListNode next;    SinglyListNode(int x)&amp;#123;        val = x;    &amp;#12">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-04-03T07:25:50.503Z">
+<meta property="og:updated_time" content="2019-04-03T08:48:12.085Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="数据结构">
-<meta name="twitter:description" content="红黑树红黑树的特点  每个节点是黑色或者红色。 根节点是黑色。 每个叶子节点是黑色（这里叶子节点是指为空（NIL或者NULL）的叶子节点） 如果一个节点是红色，则它的子节点必须是黑色的。 从一个节点到该节点的子孙节点的所有路径上包含相同数目的红黑节点（这里指到叶子节点的路径）  二叉树概览树是一种经常用到的数据结构，用来模拟具有树状结构性质的数据结合。 二叉搜索树定义二叉搜索树（BST）是二叉树的">
+<meta name="twitter:description" content="链表介绍与数组相似，链表也是一种线性数据结构。 单链表单链表中每个节点包含值和链接到下一个结点的引用字段。 12345678//单链表中结点的典型定义public class SinglyListNode &amp;#123;    int val;    SinglyListNode next;    SinglyListNode(int x)&amp;#123;        val = x;    &amp;#12">
 
 
 
@@ -450,7 +450,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-04-03 15:25:50" itemprop="dateModified" datetime="2019-04-03T15:25:50+08:00">2019-04-03</time>
+                <time title="修改时间：2019-04-03 16:48:12" itemprop="dateModified" datetime="2019-04-03T16:48:12+08:00">2019-04-03</time>
               
             
           </span>
@@ -526,7 +526,12 @@
       
 
       
-        <h4 id="红黑树"><a href="#红黑树" class="headerlink" title="红黑树"></a>红黑树</h4><p><strong>红黑树的特点</strong></p>
+        <h4 id="链表"><a href="#链表" class="headerlink" title="链表"></a>链表</h4><h5 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h5><p>与数组相似，链表也是一种线性数据结构。</p>
+<h5 id="单链表"><a href="#单链表" class="headerlink" title="单链表"></a>单链表</h5><p>单链表中每个节点包含值和链接到下一个结点的<strong>引用字段</strong>。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//单链表中结点的典型定义</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SinglyListNode</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> val;</span><br><span class="line">    SinglyListNode next;</span><br><span class="line">    SinglyListNode(<span class="keyword">int</span> x)&#123;</span><br><span class="line">        val = x;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在大多数情况下，使用头结点来表示整个链表。</p>
+<h5 id="操作"><a href="#操作" class="headerlink" title="操作"></a>操作</h5><p>与数组不同，我们无法在常量时间内访问单链表的随机元素。如果我们想要获得第i个元素，我们必须从头结点逐个遍历。时间复杂度O(N)</p>
+<h4 id="红黑树"><a href="#红黑树" class="headerlink" title="红黑树"></a>红黑树</h4><p><strong>红黑树的特点</strong></p>
 <ol>
 <li>每个节点是黑色或者红色。</li>
 <li>根节点是黑色。</li>
@@ -535,6 +540,8 @@
 <li>从一个节点到该节点的子孙节点的所有路径上包含相同数目的红黑节点（这里指到叶子节点的路径）</li>
 </ol>
 <h4 id="二叉树"><a href="#二叉树" class="headerlink" title="二叉树"></a>二叉树</h4><h5 id="概览"><a href="#概览" class="headerlink" title="概览"></a>概览</h5><p><strong>树</strong>是一种经常用到的数据结构，用来模拟具有树状结构性质的数据结合。</p>
+<p>树里的每一个节点由一个根植和一个包含所有子节点的列表。从图的观点来看，树也可视为一个拥有N个节点和N-1条边的一个<strong>有向无环树。</strong></p>
+<h6 id="设计链表"><a href="#设计链表" class="headerlink" title="设计链表"></a>设计链表</h6><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyLinkedList</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 集合元素数量</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">transient</span> <span class="keyword">int</span> size = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 链表头结点</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">transient</span> Node&lt;E&gt; first;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 链表尾结点</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">transient</span> Node&lt;E&gt; last;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">MyLinkedList</span><span class="params">()</span></span>&#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Node</span>&lt;<span class="title">E</span>&gt;</span>&#123;</span><br><span class="line">    E item;</span><br><span class="line">    Node&lt;E&gt; next;</span><br><span class="line">    Node&lt;E&gt; prev;</span><br><span class="line"></span><br><span class="line">    Node(Node&lt;E&gt; prev,E element,Node&lt;E&gt; next)&#123;</span><br><span class="line">        <span class="keyword">this</span>.item = element;</span><br><span class="line">        <span class="keyword">this</span>.prev = prev;</span><br><span class="line">        <span class="keyword">this</span>.next = next;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h4 id="二叉搜索树"><a href="#二叉搜索树" class="headerlink" title="二叉搜索树"></a>二叉搜索树</h4><h5 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h5><p><strong>二叉搜索树（BST）</strong>是二叉树的一种特殊表示形式，它满足如下特性</p>
 <ol>
 <li>每个节点的值必须大于或等于存储在其左侧子树中的任何值。</li>
@@ -710,7 +717,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">15</span>
+                    <span class="site-state-item-count">17</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -748,7 +755,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">10</span>
+                      
+                    
+                    <span class="site-state-item-count">11</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -793,7 +802,13 @@
                     
                       
                     
-                    <span class="site-state-item-count">14</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">17</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -890,7 +905,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#红黑树"><span class="nav-number">1.</span> <span class="nav-text">红黑树</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#二叉树"><span class="nav-number">2.</span> <span class="nav-text">二叉树</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#概览"><span class="nav-number">2.1.</span> <span class="nav-text">概览</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#二叉搜索树"><span class="nav-number">3.</span> <span class="nav-text">二叉搜索树</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#定义"><span class="nav-number">3.1.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#验证二叉搜索树"><span class="nav-number">3.2.</span> <span class="nav-text">验证二叉搜索树</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#二叉搜索树迭代器"><span class="nav-number">3.3.</span> <span class="nav-text">二叉搜索树迭代器</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#链表"><span class="nav-number">1.</span> <span class="nav-text">链表</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#介绍"><span class="nav-number">1.1.</span> <span class="nav-text">介绍</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#单链表"><span class="nav-number">1.2.</span> <span class="nav-text">单链表</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#操作"><span class="nav-number">1.3.</span> <span class="nav-text">操作</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#红黑树"><span class="nav-number">2.</span> <span class="nav-text">红黑树</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#二叉树"><span class="nav-number">3.</span> <span class="nav-text">二叉树</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#概览"><span class="nav-number">3.1.</span> <span class="nav-text">概览</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#设计链表"><span class="nav-number">3.1.1.</span> <span class="nav-text">设计链表</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#二叉搜索树"><span class="nav-number">4.</span> <span class="nav-text">二叉搜索树</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#定义"><span class="nav-number">4.1.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#验证二叉搜索树"><span class="nav-number">4.2.</span> <span class="nav-text">验证二叉搜索树</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#二叉搜索树迭代器"><span class="nav-number">4.3.</span> <span class="nav-text">二叉搜索树迭代器</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -957,7 +972,7 @@
     <!-- 博客字数统计 -->
     <span class="site-pv">
       <i class="fa fa-pencil"></i>
-      博客全站共： <span class="post-count">15.2k</span> 字
+      博客全站共： <span class="post-count">19.1k</span> 字
     </span>
 </div>
 <!-- 新增访客统计代码 END-->
