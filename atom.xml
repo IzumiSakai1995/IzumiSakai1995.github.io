@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-04-08T06:38:14.335Z</updated>
+  <updated>2019-04-08T06:57:34.838Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -21,15 +21,15 @@
     <link href="http://yoursite.com/2019/04/08/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
     <id>http://yoursite.com/2019/04/08/设计模式/</id>
     <published>2019-04-08T06:37:15.000Z</published>
-    <updated>2019-04-08T06:38:14.335Z</updated>
+    <updated>2019-04-08T06:57:34.838Z</updated>
     
-    <content type="html"><![CDATA[<h4 id="单例模式-singleton"><a href="#单例模式-singleton" class="headerlink" title="单例模式-singleton"></a>单例模式-singleton</h4>]]></content>
+    <content type="html"><![CDATA[<h4 id="单例模式-singleton"><a href="#单例模式-singleton" class="headerlink" title="单例模式-singleton"></a>单例模式-singleton</h4><p>确保某一个类只有一个实例，并且提供一个全局访问点，单例模式具备典型的三个特点：</p><ol><li>只有一个实例</li><li>自我实例化</li><li>提供共全局访问点</li></ol><p>当系统中只需要一个实例对象或者系统中只允许一个公共访问点，除了这个公共访问点外，不能通过其他访问点访问该实例时，可以使用单例模式。</p>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;h4 id=&quot;单例模式-singleton&quot;&gt;&lt;a href=&quot;#单例模式-singleton&quot; class=&quot;headerlink&quot; title=&quot;单例模式-singleton&quot;&gt;&lt;/a&gt;单例模式-singleton&lt;/h4&gt;
+        &lt;h4 id=&quot;单例模式-singleton&quot;&gt;&lt;a href=&quot;#单例模式-singleton&quot; class=&quot;headerlink&quot; title=&quot;单例模式-singleton&quot;&gt;&lt;/a&gt;单例模式-singleton&lt;/h4&gt;&lt;p&gt;确保某一个类只有一个实例，并且提供一个全局访
       
     
     </summary>

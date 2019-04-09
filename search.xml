@@ -3,7 +3,7 @@
   <entry>
     <title><![CDATA[设计模式]]></title>
     <url>%2F2019%2F04%2F08%2F%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%2F</url>
-    <content type="text"><![CDATA[单例模式-singleton]]></content>
+    <content type="text"><![CDATA[单例模式-singleton确保某一个类只有一个实例，并且提供一个全局访问点，单例模式具备典型的三个特点： 只有一个实例 自我实例化 提供共全局访问点 当系统中只需要一个实例对象或者系统中只允许一个公共访问点，除了这个公共访问点外，不能通过其他访问点访问该实例时，可以使用单例模式。]]></content>
       <categories>
         <category>设计模式</category>
       </categories>
