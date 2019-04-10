@@ -120,7 +120,7 @@
 <meta property="og:site_name" content="Izumi">
 <meta property="og:description" content="单例模式-singleton确保某一个类只有一个实例，并且提供一个全局访问点，单例模式具备典型的三个特点：  只有一个实例 自我实例化 提供共全局访问点  当系统中只需要一个实例对象或者系统中只允许一个公共访问点，除了这个公共访问点外，不能通过其他访问点访问该实例时，可以使用单例模式。 1234public enum Singleton &amp;#123;    INSTANCE;&amp;#125;// 单元">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-04-09T09:25:27.456Z">
+<meta property="og:updated_time" content="2019-04-10T02:53:16.423Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="设计模式">
 <meta name="twitter:description" content="单例模式-singleton确保某一个类只有一个实例，并且提供一个全局访问点，单例模式具备典型的三个特点：  只有一个实例 自我实例化 提供共全局访问点  当系统中只需要一个实例对象或者系统中只允许一个公共访问点，除了这个公共访问点外，不能通过其他访问点访问该实例时，可以使用单例模式。 1234public enum Singleton &amp;#123;    INSTANCE;&amp;#125;// 单元">
@@ -450,7 +450,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-04-09 17:25:27" itemprop="dateModified" datetime="2019-04-09T17:25:27+08:00">2019-04-09</time>
+                <time title="修改时间：2019-04-10 10:53:16" itemprop="dateModified" datetime="2019-04-10T10:53:16+08:00">2019-04-10</time>
               
             
           </span>
@@ -554,7 +554,18 @@
 </ol>
 <h4 id="原型模式"><a href="#原型模式" class="headerlink" title="原型模式"></a>原型模式</h4><p>在我们应用程序可能有某些对象的结构比较复杂，但是我们又需要频繁的使用它们，如果这个时候我们来不断的新建这个对象势必会大大损耗系统内存的，这个时候我们需要使用原型模式来对这个结构复杂又要频繁使用的对象进行克隆。所以原型模式就是用原型实例指定创建对象的种类，并且通过复制这些原型创建新的对象。</p>
 <p>它主要应用与那些创建新对象的成本过大时。它的主要优点就是简化了新对象的创建过程，提高了效率，同时原型模式提供了简化的创建结构</p>
-<h5 id="模式结构"><a href="#模式结构" class="headerlink" title="模式结构"></a>模式结构</h5><p>原型模式包含如下角色</p>
+<h5 id="使用场景"><a href="#使用场景" class="headerlink" title="使用场景"></a>使用场景</h5><ol>
+<li>资源优化场景</li>
+<li>类初始化需要消耗非常多的资源、包括数据、硬件等。</li>
+<li>性能和安全要求的场景</li>
+<li>通过new产生一个对象需要非常繁琐的数据准备或访问权限</li>
+<li>一个对象多个修改者的场景</li>
+<li>一个对象需要提供给其他对象访问，而且各个调用者可能都需要修改其值，可考虑使用原型模式拷贝多个对象供调用者使用</li>
+<li>在实际项目中，原型模式很少单独出现，一般是和工厂方法模式一起出现，通过clone的方法创建一个对象，然后由工厂方法提供给调用者。</li>
+</ol>
+<p><strong>注意事项：</strong>与通过对一个类进行实例化来构建对象不同的是，原型模式是通过拷贝一个现有对象生成新对象的。浅复制实现cloneable，重写clone方法，深复制是通过实现Serializable读取二进制流。</p>
+<h5 id="浅复制实现"><a href="#浅复制实现" class="headerlink" title="浅复制实现"></a>浅复制实现</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Prototype</span> <span class="keyword">implements</span> <span class="title">Cloneable</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Prototype <span class="title">clone</span><span class="params">()</span></span>&#123;</span><br><span class="line"></span><br><span class="line">        Prototype prototype = <span class="keyword">null</span>;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            prototype = (Prototype) <span class="keyword">super</span>.clone();</span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception e)&#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> prototype;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="深复制实现"><a href="#深复制实现" class="headerlink" title="深复制实现"></a>深复制实现</h5><h5 id="模式结构"><a href="#模式结构" class="headerlink" title="模式结构"></a>模式结构</h5><p>原型模式包含如下角色</p>
 <ol>
 <li>Prototype：抽象原型类</li>
 <li>concrete prototype：具体原型类</li>
@@ -925,7 +936,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#单例模式-singleton"><span class="nav-number">1.</span> <span class="nav-text">单例模式-singleton</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#抽象工厂模式"><span class="nav-number">2.</span> <span class="nav-text">抽象工厂模式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#工厂方法模式"><span class="nav-number">3.</span> <span class="nav-text">工厂方法模式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#建造者模式"><span class="nav-number">4.</span> <span class="nav-text">建造者模式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#原型模式"><span class="nav-number">5.</span> <span class="nav-text">原型模式</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#模式结构"><span class="nav-number">5.1.</span> <span class="nav-text">模式结构</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#适配器模式"><span class="nav-number">6.</span> <span class="nav-text">适配器模式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#桥接模式"><span class="nav-number">7.</span> <span class="nav-text">桥接模式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#组合模式"><span class="nav-number">8.</span> <span class="nav-text">组合模式</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#单例模式-singleton"><span class="nav-number">1.</span> <span class="nav-text">单例模式-singleton</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#抽象工厂模式"><span class="nav-number">2.</span> <span class="nav-text">抽象工厂模式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#工厂方法模式"><span class="nav-number">3.</span> <span class="nav-text">工厂方法模式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#建造者模式"><span class="nav-number">4.</span> <span class="nav-text">建造者模式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#原型模式"><span class="nav-number">5.</span> <span class="nav-text">原型模式</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#使用场景"><span class="nav-number">5.1.</span> <span class="nav-text">使用场景</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#浅复制实现"><span class="nav-number">5.2.</span> <span class="nav-text">浅复制实现</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#深复制实现"><span class="nav-number">5.3.</span> <span class="nav-text">深复制实现</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#模式结构"><span class="nav-number">5.4.</span> <span class="nav-text">模式结构</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#适配器模式"><span class="nav-number">6.</span> <span class="nav-text">适配器模式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#桥接模式"><span class="nav-number">7.</span> <span class="nav-text">桥接模式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#组合模式"><span class="nav-number">8.</span> <span class="nav-text">组合模式</span></a></li></ol></div>
             
 
           </div>
@@ -992,7 +1003,7 @@
     <!-- 博客字数统计 -->
     <span class="site-pv">
       <i class="fa fa-pencil"></i>
-      博客全站共： <span class="post-count">21.1k</span> 字
+      博客全站共： <span class="post-count">21.4k</span> 字
     </span>
 </div>
 <!-- 新增访客统计代码 END-->
