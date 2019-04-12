@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-04-10T02:53:16.423Z</updated>
+  <updated>2019-04-12T08:16:12.446Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>oracle</title>
+    <link href="http://yoursite.com/2019/04/12/oracle/"/>
+    <id>http://yoursite.com/2019/04/12/oracle/</id>
+    <published>2019-04-12T07:57:09.000Z</published>
+    <updated>2019-04-12T08:16:12.446Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="oracle数据类型"><a href="#oracle数据类型" class="headerlink" title="oracle数据类型"></a>oracle数据类型</h3><p>字符、字符串</p><p>char  varchar  varchar2 nvarchar</p><p>数字</p><p>number</p><p>日期</p><ol><li>日期<ol><li>date:年月日时分秒</li></ol></li><li>时间戳<ol><li>timestamp:年月日时分秒时区；</li></ol></li></ol><p>大数据量存储</p><ol><li>blob</li><li>clob</li></ol><h3 id="单行函数"><a href="#单行函数" class="headerlink" title="单行函数"></a>单行函数</h3><h4 id="字符串函数"><a href="#字符串函数" class="headerlink" title="字符串函数"></a>字符串函数</h4><table><thead><tr><th style="text-align:left"></th><th style="text-align:left"></th><th></th><th></th><th></th><th></th></tr></thead><tbody><tr><td style="text-align:left">char(integer)</td><td style="text-align:left">返回对应ascll码</td><td></td><td></td><td></td><td></td></tr><tr><td style="text-align:left">lower</td><td style="text-align:left">小写</td><td></td><td></td><td></td><td></td></tr><tr><td style="text-align:left">concat(String1,String2)</td><td style="text-align:left">字符串拼接</td><td></td><td></td><td></td><td></td></tr><tr><td style="text-align:left">upper</td><td style="text-align:left">大写</td><td></td><td></td><td></td><td></td></tr><tr><td style="text-align:left">initcap(string)</td><td style="text-align:left">将字符串第一个字母变为大写，其余变成小写</td><td></td><td></td><td></td><td></td></tr><tr><td style="text-align:left">lpad（string,number,char）</td><td style="text-align:left">让指定字符char在字符串左边填充,当数字比字符串长度小时功能相当于截取</td><td></td><td></td><td></td><td></td></tr><tr><td style="text-align:left">substr(string,start,length)</td><td style="text-align:left">截取字符串</td><td></td><td></td><td></td></tr></tbody></table>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;oracle数据类型&quot;&gt;&lt;a href=&quot;#oracle数据类型&quot; class=&quot;headerlink&quot; title=&quot;oracle数据类型&quot;&gt;&lt;/a&gt;oracle数据类型&lt;/h3&gt;&lt;p&gt;字符、字符串&lt;/p&gt;
+&lt;p&gt;char  varchar  varchar2 
+      
+    
+    </summary>
+    
+      <category term="oracle" scheme="http://yoursite.com/categories/oracle/"/>
+    
+    
+      <category term="oracle" scheme="http://yoursite.com/tags/oracle/"/>
+    
+      <category term="数据库" scheme="http://yoursite.com/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    
+  </entry>
   
   <entry>
     <title>设计模式</title>
@@ -441,9 +469,9 @@
       <category term="java" scheme="http://yoursite.com/categories/java/"/>
     
     
-      <category term="java" scheme="http://yoursite.com/tags/java/"/>
-    
       <category term="面试" scheme="http://yoursite.com/tags/%E9%9D%A2%E8%AF%95/"/>
+    
+      <category term="java" scheme="http://yoursite.com/tags/java/"/>
     
   </entry>
   
